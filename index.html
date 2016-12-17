@@ -52,9 +52,8 @@
             var content;
             jQuery.get('./pages/' + pageNumber + '.txt', function(data) {
                 content = data;
+                div.innerHTML = div.innerHTML + content;
             });
-            
-            div.innerHTML = div.innerHTML + content;
             
             pageNumber--;
             
