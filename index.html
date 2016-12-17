@@ -42,10 +42,9 @@
         var pageNumber = 2;
         
         function loadMore() {
-            if (pageNumber <= 0) {
+            if (pageNumber == 1) {
                 var button = document.getElementById('button');
                 button.parentNode.removeChild(button);
-                return;
             }
             
             var div = document.getElementById('content');
