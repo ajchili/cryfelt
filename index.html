@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jaedyn Beltran</title>
+    </head>
+    <body>
+        <div class="header">
+            <h2>Jaedyn Beltran</h2>
+            <div style="displasy: block;">
+                <p>artwork and music for a generation<a href="https://soundcloud.com/aidesensitive" target="_blank" style="padding-left: 5em;">soundcloud</a> // <a href="https://twitter.com/aidesensitive" target="_blank">twitter</a> // <a href="" target="_blank">facebook</a></p>
+            </div>
+        </div>
+        <div class="content">
+            <div id="content">
+                <div class="music">
+                    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/297918734&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                </div>
+                <div class="music">
+                    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/297149881&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                </div>
+                <div class="artwork">
+                    <a href="https://twitter.com/aidesensitive/status/800159193118478336" target="_blank"><img src="images/Cxq8iKFUkAAqIxx.jpg"></a>
+                </div>
+                <div class="artwork">
+                    <a href="https://twitter.com/aidesensitive/status/788626043930288128" target="_blank"><img src="images/fire.png"></a>
+                </div>
+            </div>
+            <p id="button" class="button"><a style="color: black;" href="javascript:void(0);" onclick="return loadMore();">load more</a></p>
+        </div>
+        <div class="footer">
+            <p>designed by <a href="www.kirinpatel.com" target="_blank">Kirin Patel</a></p>
+        </div>
+    </body>
+        
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/css.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/uikit.min.js"></script>
+    <script type="text/javascript">
+        var pageNumber = 2;
+        
+        function loadMore() {
+            if (pageNumber <= 0) {
+                var button = document.getElementById('button');
+                button.parentNode.removeChild(button);
+                return;
+            }
+            
+            var div = document.getElementById('content');
+            var content;
+            jQuery.get('./pages/' + pageNumber + '.txt', function(data) {
+                content = data;
+            });
+            
+            div.innerHTML = div.innerHTML + content;
+            
+            pageNumber--;
+            
+            return false;
+        }
+    </script>
+</html>
